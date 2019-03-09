@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mxl.user.mapper.user.UserMapper">
+
+    <select id="findUserList" resultType="">
+        select * from User
+    </select>
+
+    <update id="updateUsersByBatch" parameterType="list">
+        <foreach collection="list" item="user" separator=";">
+            update User set
+            userName= #{user.userName}
+            age = #{user.age}
+            where id = #{user.id}
+        </foreach>
+    </update>
+
+    <delete id="deleteUserById" parameterType="java.lang.Integer">
+        delete from User where id = #{0}
+    </delete>
+
+
+</mapper>

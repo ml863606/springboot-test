@@ -1,0 +1,25 @@
+##########################################################
+###################  线上环境的profile  ###################
+##########################################################
+
+###################  项目配置  ###################
+#自定义属性
+school:
+  appid: 31jMir437B
+  secret: ba235e14-8abf-4f86-af52-57a7430eac56
+  wxjapi: http://api.weixiaojia.cn/wxcepInterface/cgi-bin/token
+  sync-card-url: http://api.weixiaojia.cn/wxcepInterface/cgi-bin/card/syncCardInfo
+  getTeacherInfoUrl: http://api.weixiaojia.cn/wxcepInterface/cgi-bin/user/getStudentInfo
+  getStuInfoUrl: http://api.weixiaojia.cn/wxcepInterface/cgi-bin/user/getStuInfoUrl
+
+
+
+###################  数据源  ###################
+spring:
+  profiles: release
+  # 数据库
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=TransDbCpu
+    username: sa
+    password: newcapec@123
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver

@@ -1,0 +1,25 @@
+##########################################################
+###################  本地开发环境的profile  ###################
+##########################################################
+
+###################  日志配置 （各环境配置不同输出级别） ###################
+mybatis-plus: 
+  global-config:
+    # 刷新mapper 调试神器
+    refresh-mapper: true
+  configuration: 
+    # 打印扫描、sql、查询结果信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+###################  项目配置  ###################
+
+###################  数据源  ###################
+
+spring:
+  profiles: local
+  # 数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver

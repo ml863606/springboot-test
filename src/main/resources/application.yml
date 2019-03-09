@@ -1,0 +1,36 @@
+###################  项目配置  ###################
+server: 
+  port: 8092
+  context-path: /SpringBoot-test
+  tomcat:
+    uri-encoding: UTF-8 # 配置Tomcat编码，默认为UTF-8
+
+# springboot默认是禁止jsp热加载的
+server.jsp-servlet.init-parameters.development: true
+
+# 激活配置
+spring:
+  profiles:
+    #active: release
+    active: local
+
+###################  mybatis-plus  ###################
+mybatis-plus:
+  #mapper-locations: classpath*:com/wxadt/wxcep/onecard/mapper/*/sql/*.xml
+  mapper-locations: classpath*:mapper/*.xml
+  # 配置实体扫描路径，多个package可以用分号; 逗号, 分隔， 支持通配符*
+  #typeAliasesPackage: com.wxadt.wxcep.*.api.*.*model
+  global-config:
+    id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    db-column-underline: false # 字段名统一用驼峰式，和实体类一致
+    refresh-mapper: false  # 刷新mapper 调试神器
+    logic-delete-value: 0 # 逻辑删除全局值
+    logic-not-delete-value: 1 # 逻辑未删除全局值
+    # 自定义sql注入器,不在推荐使用此方式进行配置,请使用自定义bean注入
+    # sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: false # 配置的缓存的全局开关
+    lazyLoadingEnabled: false # 延时加载的开关
+    multipleResultSetsEnabled: false # 开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用（本地和开发环境打开）
